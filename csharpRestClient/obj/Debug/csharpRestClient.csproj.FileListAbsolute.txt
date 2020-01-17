@@ -1,0 +1,14 @@
+C:\Users\3D Infotech.3DCA-LY520-12\source\repos\csharpRestClient\csharpRestClient\bin\Debug\csharpRestClient.exe.config
+C:\Users\3D Infotech.3DCA-LY520-12\source\repos\csharpRestClient\csharpRestClient\bin\Debug\csharpRestClient.exe
+C:\Users\3D Infotech.3DCA-LY520-12\source\repos\csharpRestClient\csharpRestClient\bin\Debug\csharpRestClient.pdb
+C:\Users\3D Infotech.3DCA-LY520-12\source\repos\csharpRestClient\csharpRestClient\obj\Debug\csharpRestClient.csprojAssemblyReference.cache
+C:\Users\3D Infotech.3DCA-LY520-12\source\repos\csharpRestClient\csharpRestClient\obj\Debug\csharpRestClient.Form1.resources
+C:\Users\3D Infotech.3DCA-LY520-12\source\repos\csharpRestClient\csharpRestClient\obj\Debug\csharpRestClient.Properties.Resources.resources
+C:\Users\3D Infotech.3DCA-LY520-12\source\repos\csharpRestClient\csharpRestClient\obj\Debug\csharpRestClient.csproj.GenerateResource.cache
+C:\Users\3D Infotech.3DCA-LY520-12\source\repos\csharpRestClient\csharpRestClient\obj\Debug\csharpRestClient.exe
+C:\Users\3D Infotech.3DCA-LY520-12\source\repos\csharpRestClient\csharpRestClient\obj\Debug\csharpRestClient.pdb
+C:\Users\3D Infotech.3DCA-LY520-12\source\repos\csharpRestClient\csharpRestClient\bin\Debug\Newtonsoft.Json.dll
+C:\Users\3D Infotech.3DCA-LY520-12\source\repos\csharpRestClient\csharpRestClient\bin\Debug\Newtonsoft.Json.xml
+C:\Users\3D Infotech.3DCA-LY520-12\source\repos\csharpRestClient\csharpRestClient\obj\Debug\csharpRestClient.csproj.CopyComplete
+C:\Users\3D Infotech.3DCA-LY520-12\source\repos\csharpRestClient\csharpRestClient\bin\Debug\RestSharp.dll
+C:\Users\3D Infotech.3DCA-LY520-12\source\repos\csharpRestClient\csharpRestClient\bin\Debug\RestSharp.xml
