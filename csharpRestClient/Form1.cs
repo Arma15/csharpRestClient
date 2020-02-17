@@ -33,7 +33,12 @@ namespace csharpRestClient
             {
                 // ************************* Test Code ******************************************
                 var oacRequest = new RestRequest();
-                oacRequest.Method = Method.GET;
+                oacRequest.Method = Method.POST;
+                
+                oacRequest.AddHeader("ClientID", "12345");
+                //oacRequest.AddHeader("ClientSecret", "password");
+
+
                 var responseJson = oacClient.Execute(oacRequest);
                 var rslt = JsonConvert.DeserializeObject<OACResponse>(responseJson.Content);
                 // File content contains base 64 encoded xml to retrieve info
@@ -50,7 +55,7 @@ namespace csharpRestClient
                 Console.WriteLine("ITEM_NUMBER = " + itemNumber.FirstNode);
                 Console.WriteLine("SERIAL_NUMBER = " + serialNumber.FirstNode);
 
-                /* Real code
+                /************************** Real code *******************************************
                 var tokenRequest = new RestRequest();
                 var oacRequest = new RestRequest();
 
