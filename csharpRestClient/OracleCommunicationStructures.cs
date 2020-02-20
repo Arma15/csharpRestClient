@@ -10,6 +10,10 @@ namespace csharpRestClient
     public class Rreports
     {
         public List<Rreport> Report { get; set; }
+        public Rreports()
+        {
+            Report = new List<Rreport>();
+        }
     }
 
     public class Rreport
@@ -49,6 +53,14 @@ namespace csharpRestClient
         public Rreports Reports { get; set; }
         public RerrorDetails ErrorDetails { get; set; }
         public RresponseDetails ResponseDetails { get; set; }
+
+        public OACResponse()
+        {
+            Reports = new Rreports();
+            ErrorDetails = new RerrorDetails();
+            ResponseDetails = new RresponseDetails();
+
+        }
 
         /*public OACResponse()
         {

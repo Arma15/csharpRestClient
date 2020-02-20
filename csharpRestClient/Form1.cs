@@ -177,7 +177,8 @@ namespace csharpRestClient
                     LogBox.Text += "Status Code: " + responseJson.StatusCode + Environment.NewLine;
                     LogBox.Text += "Headers: " + responseJson.Headers.ToString() + Environment.NewLine;
                 }
-
+                LogBox.Text += "Response content: " + Environment.NewLine;
+                LogBox.Text += responseJson.Content.ToString();
                 try
                 {
                     LogBox.Text += "Deserializing response " + Environment.NewLine;

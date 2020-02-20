@@ -25,3 +25,4 @@ C:\Users\kflor\source\repos\csharpRestClient\csharpRestClient\obj\Release\csharp
 C:\Users\kflor\source\repos\csharpRestClient\csharpRestClient\obj\Release\csharpRestClient.csproj.CopyComplete
 C:\Users\kflor\source\repos\csharpRestClient\csharpRestClient\obj\Release\csharpRestClient.exe
 C:\Users\kflor\source\repos\csharpRestClient\csharpRestClient\obj\Release\csharpRestClient.pdb
+C:\Users\kflor\source\repos\csharpRestClient\csharpRestClient\obj\Release\csharpRestClient.csprojAssemblyReference.cache
