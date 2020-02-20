@@ -62,7 +62,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResponseStructure.cs" />
+    <Compile Include="OracleCommunicationStructures.cs" />
     <Compile Include="R_Client.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
