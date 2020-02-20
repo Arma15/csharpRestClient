@@ -48,12 +48,13 @@
             this.TokenRadio = new System.Windows.Forms.RadioButton();
             this.MessageRadio = new System.Windows.Forms.RadioButton();
             this.OrderNumbertxt = new System.Windows.Forms.TextBox();
-            this.JobNumbertxt = new System.Windows.Forms.TextBox();
             this.SerialNumbertxt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.Derserializebtn = new System.Windows.Forms.Button();
+            this.LogBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // RequestURI
@@ -72,7 +73,7 @@
             this.txtResponse.Multiline = true;
             this.txtResponse.Name = "txtResponse";
             this.txtResponse.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtResponse.Size = new System.Drawing.Size(822, 319);
+            this.txtResponse.Size = new System.Drawing.Size(482, 319);
             this.txtResponse.TabIndex = 1;
             // 
             // cmdGO
@@ -99,7 +100,7 @@
             // 
             this.ResponseLabel.AutoSize = true;
             this.ResponseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ResponseLabel.Location = new System.Drawing.Point(48, 222);
+            this.ResponseLabel.Location = new System.Drawing.Point(48, 232);
             this.ResponseLabel.Name = "ResponseLabel";
             this.ResponseLabel.Size = new System.Drawing.Size(83, 16);
             this.ResponseLabel.TabIndex = 4;
@@ -235,17 +236,11 @@
             // 
             // OrderNumbertxt
             // 
-            this.OrderNumbertxt.Location = new System.Drawing.Point(709, 163);
+            this.OrderNumbertxt.Location = new System.Drawing.Point(709, 186);
             this.OrderNumbertxt.Name = "OrderNumbertxt";
             this.OrderNumbertxt.Size = new System.Drawing.Size(158, 20);
             this.OrderNumbertxt.TabIndex = 21;
-            // 
-            // JobNumbertxt
-            // 
-            this.JobNumbertxt.Location = new System.Drawing.Point(709, 189);
-            this.JobNumbertxt.Name = "JobNumbertxt";
-            this.JobNumbertxt.Size = new System.Drawing.Size(158, 20);
-            this.JobNumbertxt.TabIndex = 22;
+            this.OrderNumbertxt.TextChanged += new System.EventHandler(this.OrderNumbertxt_TextChanged);
             // 
             // SerialNumbertxt
             // 
@@ -253,6 +248,7 @@
             this.SerialNumbertxt.Name = "SerialNumbertxt";
             this.SerialNumbertxt.Size = new System.Drawing.Size(158, 20);
             this.SerialNumbertxt.TabIndex = 23;
+            this.SerialNumbertxt.TextChanged += new System.EventHandler(this.SerialNumbertxt_TextChanged);
             // 
             // label2
             // 
@@ -264,21 +260,11 @@
             this.label2.TabIndex = 24;
             this.label2.Text = "Serial Number";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(608, 189);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 16);
-            this.label3.TabIndex = 25;
-            this.label3.Text = "Job Number";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(608, 167);
+            this.label4.Location = new System.Drawing.Point(610, 187);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(93, 16);
             this.label4.TabIndex = 26;
@@ -294,17 +280,50 @@
             this.Derserializebtn.UseVisualStyleBackColor = true;
             this.Derserializebtn.Click += new System.EventHandler(this.Deserialize_Click);
             // 
+            // LogBox
+            // 
+            this.LogBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LogBox.Location = new System.Drawing.Point(533, 251);
+            this.LogBox.Multiline = true;
+            this.LogBox.Name = "LogBox";
+            this.LogBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.LogBox.Size = new System.Drawing.Size(343, 319);
+            this.LogBox.TabIndex = 28;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(530, 232);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(38, 16);
+            this.label5.TabIndex = 29;
+            this.label5.Text = "Log:";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(792, 139);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 30;
+            this.button1.Text = "Clear log";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(888, 582);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.LogBox);
             this.Controls.Add(this.Derserializebtn);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.SerialNumbertxt);
-            this.Controls.Add(this.JobNumbertxt);
             this.Controls.Add(this.OrderNumbertxt);
             this.Controls.Add(this.MessageRadio);
             this.Controls.Add(this.TokenRadio);
@@ -354,12 +373,13 @@
         private System.Windows.Forms.RadioButton TokenRadio;
         private System.Windows.Forms.RadioButton MessageRadio;
         private System.Windows.Forms.TextBox OrderNumbertxt;
-        private System.Windows.Forms.TextBox JobNumbertxt;
         private System.Windows.Forms.TextBox SerialNumbertxt;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button Derserializebtn;
+        private System.Windows.Forms.TextBox LogBox;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button1;
     }
 }
 

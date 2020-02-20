@@ -50,7 +50,7 @@ namespace csharpRestClient
         public RerrorDetails ErrorDetails { get; set; }
         public RresponseDetails ResponseDetails { get; set; }
 
-        public OACResponse()
+        /*public OACResponse()
         {
             EsetNumber = 69;
             OrderNumber = null;
@@ -88,7 +88,7 @@ namespace csharpRestClient
                 ResponseCode = 200,
                 ResponseMessage = "Success"
             };
-        }
+        }*/
 
         /*
         {
@@ -148,7 +148,7 @@ namespace csharpRestClient
     {
         /// <summary> Not Required </summary>
         [DataMember]
-        public int EsetNumber { get; set; }
+        public string EsetNumber { get; set; }
 
         /// <summary> Required </summary>
         [DataMember]
@@ -204,20 +204,20 @@ namespace csharpRestClient
 
         public OACRequest()
         {
-            EsetNumber = 0;
-            OrderNumber = "4782158";
-            OrganizationCode = "BOP";
-            JobNumber = "BOP18078613";
-            SerialNumber = "SPX19300147SA";
-            MacAddress = "null";
-            SoftwareExtension = "null";
+            EsetNumber = "";
+            OrderNumber = "A0659PA";
+            OrganizationCode = "UMM";
+            JobNumber = "";
+            SerialNumber = "15012020OX1";
+            MacAddress = "";
+            SoftwareExtension = "";
             OperatorName = "3DInfotech";
             ClientName = "3DInfotech";
             ClientType = "3DInfotech";
-            OrderType = "null";
-            TransactionType = "Upgrade";
-            ForkliftSerialNumber = "null";
-            ReportTypes = "xml";
+            OrderType = "";
+            TransactionType = "New";
+            ForkliftSerialNumber = "";
+            ReportTypes = "xmL";
         }
 
         public override string ToString()

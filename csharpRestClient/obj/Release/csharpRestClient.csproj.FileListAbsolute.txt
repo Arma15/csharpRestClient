@@ -11,3 +11,17 @@ C:\Users\3D Infotech.3DCA-LY520-12\source\repos\csharpRestClient\csharpRestClien
 C:\Users\3D Infotech.3DCA-LY520-12\source\repos\csharpRestClient\csharpRestClient\obj\Release\csharpRestClient.csproj.CopyComplete
 C:\Users\3D Infotech.3DCA-LY520-12\source\repos\csharpRestClient\csharpRestClient\obj\Release\csharpRestClient.exe
 C:\Users\3D Infotech.3DCA-LY520-12\source\repos\csharpRestClient\csharpRestClient\obj\Release\csharpRestClient.pdb
+C:\Users\kflor\source\repos\csharpRestClient\csharpRestClient\bin\Release\csharpRestClient.exe.config
+C:\Users\kflor\source\repos\csharpRestClient\csharpRestClient\bin\Release\csharpRestClient.exe
+C:\Users\kflor\source\repos\csharpRestClient\csharpRestClient\bin\Release\csharpRestClient.pdb
+C:\Users\kflor\source\repos\csharpRestClient\csharpRestClient\bin\Release\Newtonsoft.Json.dll
+C:\Users\kflor\source\repos\csharpRestClient\csharpRestClient\bin\Release\RestSharp.dll
+C:\Users\kflor\source\repos\csharpRestClient\csharpRestClient\bin\Release\Newtonsoft.Json.xml
+C:\Users\kflor\source\repos\csharpRestClient\csharpRestClient\bin\Release\RestSharp.xml
+C:\Users\kflor\source\repos\csharpRestClient\csharpRestClient\obj\Release\csharpRestClient.Form1.resources
+C:\Users\kflor\source\repos\csharpRestClient\csharpRestClient\obj\Release\csharpRestClient.Properties.Resources.resources
+C:\Users\kflor\source\repos\csharpRestClient\csharpRestClient\obj\Release\csharpRestClient.csproj.GenerateResource.cache
+C:\Users\kflor\source\repos\csharpRestClient\csharpRestClient\obj\Release\csharpRestClient.csproj.CoreCompileInputs.cache
+C:\Users\kflor\source\repos\csharpRestClient\csharpRestClient\obj\Release\csharpRestClient.csproj.CopyComplete
+C:\Users\kflor\source\repos\csharpRestClient\csharpRestClient\obj\Release\csharpRestClient.exe
+C:\Users\kflor\source\repos\csharpRestClient\csharpRestClient\obj\Release\csharpRestClient.pdb
