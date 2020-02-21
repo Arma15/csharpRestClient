@@ -155,7 +155,7 @@ namespace csharpRestClient
                 RestClient oacClient = new RestClient(requestURI);
 
                 oacRequest.AddHeader(HeaderNametxt.Text.Trim(), HeaderValuetxt.Text.Trim());
-                LogBox.Text += "Added Header Name/Value: " + HeaderNametxt.Text + " " + HeaderValuetxt + Environment.NewLine;
+                LogBox.Text += "Added Header Name/Value: " + HeaderNametxt.Text + " " + HeaderValuetxt.Text + Environment.NewLine;
 
                 oacRequest.AddJsonBody(req.ToString());
                 LogBox.Text += "Added Json body: " + req.ToString() + Environment.NewLine;

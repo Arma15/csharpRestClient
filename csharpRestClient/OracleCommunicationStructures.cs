@@ -227,7 +227,7 @@ namespace csharpRestClient
             ClientName = "3DInfotech";
             ClientType = "3DInfotech";
             OrderType = "";
-            TransactionType = "New";
+            TransactionType = "Upgrade";
             ForkliftSerialNumber = "";
             ReportTypes = "xmL";
         }
