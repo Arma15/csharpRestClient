@@ -10,6 +10,10 @@ namespace csharpRestClient
     public class Rreports
     {
         public List<Rreport> Report { get; set; }
+        public Rreports()
+        {
+            Report = new List<Rreport>();
+        }
     }
 
     public class Rreport
@@ -52,6 +56,14 @@ namespace csharpRestClient
 
         public OACResponse()
         {
+            Reports = new Rreports();
+            ErrorDetails = new RerrorDetails();
+            ResponseDetails = new RresponseDetails();
+
+        }
+
+        /*public OACResponse()
+        {
             EsetNumber = 69;
             OrderNumber = null;
             OrganizationCode = "HEL";
@@ -88,7 +100,7 @@ namespace csharpRestClient
                 ResponseCode = 200,
                 ResponseMessage = "Success"
             };
-        }
+        }*/
 
         /*
         {
@@ -148,7 +160,7 @@ namespace csharpRestClient
     {
         /// <summary> Not Required </summary>
         [DataMember]
-        public int EsetNumber { get; set; }
+        public string EsetNumber { get; set; }
 
         /// <summary> Required </summary>
         [DataMember]
@@ -204,20 +216,20 @@ namespace csharpRestClient
 
         public OACRequest()
         {
-            EsetNumber = 0;
-            OrderNumber = "4782158";
-            OrganizationCode = "BOP";
-            JobNumber = "BOP18078613";
-            SerialNumber = "SPX19300147SA";
-            MacAddress = "null";
-            SoftwareExtension = "null";
+            EsetNumber = "";
+            OrderNumber = "A0659PA";
+            OrganizationCode = "UMM";
+            JobNumber = "";
+            SerialNumber = "15012020OX1";
+            MacAddress = "";
+            SoftwareExtension = "";
             OperatorName = "3DInfotech";
             ClientName = "3DInfotech";
             ClientType = "3DInfotech";
-            OrderType = "null";
+            OrderType = "";
             TransactionType = "Upgrade";
-            ForkliftSerialNumber = "null";
-            ReportTypes = "xml";
+            ForkliftSerialNumber = "";
+            ReportTypes = "xmL";
         }
 
         public override string ToString()

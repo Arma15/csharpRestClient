@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System;
 using System.IO;
 using System.Net;
 using System.Text;
@@ -15,9 +14,11 @@ namespace csharpRestClient
 {
     public partial class Form1 : Form
     {
-        public OAuthToken rslt = new OAuthToken();
-        public OACResponse rslt2 = new OACResponse();
+        //public OAuthToken rslt = new OAuthToken();
+        //public OACResponse rslt2 = new OACResponse();
         OACRequest req = new OACRequest();
+        OACResponse rslt2 = new OACResponse();
+
 
         string localHost = "https://localhost:44334/api/Response";
         public Form1()
@@ -25,11 +26,7 @@ namespace csharpRestClient
             InitializeComponent();
             //RequestURI.Text = localHost;
 
-
-
-
             OrderNumbertxt.Text = req.OrderNumber;
-            JobNumbertxt.Text = req.JobNumber;
             SerialNumbertxt.Text = req.SerialNumber;
 
         }
@@ -60,8 +57,11 @@ namespace csharpRestClient
                 // ************************* Test Token Code ******************************************
                 var oacRequest = new RestRequest(Method.POST);
                 string requestURI = RequestURI.Text.Trim();
+                LogBox.Text += "Request URI: " + requestURI + Environment.NewLine;
                 string clientID = ClientID.Text.Trim();
+                LogBox.Text += "Client ID: " + clientID + Environment.NewLine;
                 string clientSecret = ClientSecret.Text.Trim();
+                LogBox.Text += "Client Secret: " + ClientSecret + Environment.NewLine;
                 if (!Int32.TryParse(ReportIndex.Text.Trim(), out int index))
                 {
                     MessageBox.Show("Error Report Index invalid.");
@@ -80,21 +80,34 @@ namespace csharpRestClient
                 }
 
                 RestClient oacClient = new RestClient(requestURI);
-
+                LogBox.Text += "RestClient Created" + Environment.NewLine;
                 oacRequest.AddQueryParameter(clientID, clientSecret);
+                LogBox.Text += "Query params added " + Environment.NewLine;
                 //oacRequest.AddHeader("ClientSecret", "password");
 
                 IRestResponse responseJson = oacClient.Execute(oacRequest);
+                LogBox.Text += "RestClient executed " + Environment.NewLine;
                 if (!responseJson.IsSuccessful)
                 {
                     MessageBox.Show($"Request not successful, Exception: {responseJson.ErrorMessage}");
                     ResponseCode.Text = responseJson.StatusCode.ToString();
+                    LogBox.Text += "Execution request not successful" + Environment.NewLine;
                     return;
                 }
+                else
+                {
+                    LogBox.Text += "Execution request successful" + Environment.NewLine;
+                    LogBox.Text += "Response details: " + Environment.NewLine;
+                    LogBox.Text += "Status Code: " + responseJson.StatusCode + Environment.NewLine;
+                    LogBox.Text += "Headers: " + responseJson.Headers.ToString() + Environment.NewLine;
+                }
+
+                OAuthToken rslt = new OAuthToken();
 
                 try
                 {
                     rslt = JsonConvert.DeserializeObject<OAuthToken>(responseJson.Content);
+                    LogBox.Text += "deserializing completed " + Environment.NewLine;
                 }
                 catch (Exception Ex)
                 {
@@ -120,7 +133,7 @@ namespace csharpRestClient
                 // ************************* Test Message Code ******************************************
                 var oacRequest = new RestRequest(Method.POST);
                 string requestURI = RequestURI.Text.Trim();
-                
+                LogBox.Text += "Request URI: " + requestURI  + Environment.NewLine;
 
                 if (!Int32.TryParse(ReportIndex.Text.Trim(), out int index))
                 {
@@ -142,21 +155,38 @@ namespace csharpRestClient
                 RestClient oacClient = new RestClient(requestURI);
 
                 oacRequest.AddHeader(HeaderNametxt.Text.Trim(), HeaderValuetxt.Text.Trim());
+                LogBox.Text += "Added Header Name/Value: " + HeaderNametxt.Text + " " + HeaderValuetxt.Text + Environment.NewLine;
+
                 oacRequest.AddJsonBody(req.ToString());
+                LogBox.Text += "Added Json body: " + req.ToString() + Environment.NewLine;
 
                 IRestResponse responseJson = oacClient.Execute(oacRequest);
+                LogBox.Text += "Request sent" + Environment.NewLine;
+
                 if (!responseJson.IsSuccessful)
                 {
                     MessageBox.Show($"Request not successful, Exception: {responseJson.ErrorMessage}");
+                    ResponseCode.Text = responseJson.StatusCode.ToString();
+                    LogBox.Text += "Execution request not successful" + Environment.NewLine;
                     return;
                 }
-
+                else
+                {
+                    LogBox.Text += "Execution request successful" + Environment.NewLine;
+                    LogBox.Text += "Response details: " + Environment.NewLine;
+                    LogBox.Text += "Status Code: " + responseJson.StatusCode + Environment.NewLine;
+                    LogBox.Text += "Headers: " + responseJson.Headers.ToString() + Environment.NewLine;
+                }
+                LogBox.Text += "Response content: " + Environment.NewLine;
+                LogBox.Text += responseJson.Content.ToString();
                 try
                 {
+                    LogBox.Text += "Deserializing response " + Environment.NewLine;
                     rslt2 = JsonConvert.DeserializeObject<OACResponse>(responseJson.Content);
                 }
                 catch (Exception Ex)
                 {
+                    LogBox.Text += "Deserializing response failed: " + Ex.Message.ToString() + Environment.NewLine;
                     MessageBox.Show("Deserializing issue..response is defaulted.\n" + Ex.Message.ToString());
                 }
 
@@ -177,32 +207,15 @@ namespace csharpRestClient
                 }
                 catch (Exception ex)
                 {
+                    LogBox.Text += "Indexing exception: " + ex.Message.ToString() + Environment.NewLine;
                     MessageBox.Show(ex.Message.ToString());
                 }
             }
             catch (Exception ex)
             {
+                LogBox.Text += "Main exception: " + ex.Message.ToString() + Environment.NewLine;
                 MessageBox.Show(ex.Message.ToString());
             }
-        }
-
-        private string GetString()
-        {
-            string s = $"\"EsetNumber\": \"\","
-                + $"\"OrderNumber\": \"4782158\","
-                + $"\"OrganizationCode\": \"BOP\","
-                + $"\"JobNumber\": \"BOP18078613\","
-                + $"\"SerialNumber\": \"SPX19300147SA\","
-                + $"\"MACAddress\": \"Null\","
-                + $"\"SoftwareExtension\": \"Null\","
-                + $"\"OperatorName\": \"3DInfotech\","
-                + $"\"ClientName\": \"3DInfotech\","
-                + $"\"ClientType\": \"3DInfotech\","
-                + $"\"OrderType\": \"Null\","
-                + $"\"TransactionType\": \"Upgrade\","
-                + $"\"ForkliftSerialNumber\": \"null\","
-                + $"\"ReportTypes\": \"xml\"";
-            return s;
         }
 
     private void debugOutput(string strDebugText)
@@ -242,22 +255,47 @@ namespace csharpRestClient
             {
                 // File content contains base 64 encoded xml to retrieve info
                 string encoded = rslt2.Reports.Report[0].FileContent;
+                LogBox.Text += "File Content: " + Environment.NewLine;
+                LogBox.Text += encoded + Environment.NewLine + Environment.NewLine;
+
                 // Decode the message into byte array
                 var decoded = Convert.FromBase64String(encoded);
+                LogBox.Text += "Decoded message: " + decoded + Environment.NewLine + Environment.NewLine;
+
                 // Convert byte array to string
                 string xmlMessage = Encoding.Default.GetString(decoded);
+                LogBox.Text += "xml message decoded." + Environment.NewLine;
+
                 // Parse the message (in XML)
                 var str = XElement.Parse(xmlMessage);
+                LogBox.Text += "xml parsed." + Environment.NewLine;
+
                 // find specific tags
                 var itemNumber = str.Element("ITEM_DETAILS").Element("ITEM_NUMBER");
                 var serialNumber = str.Element("SERIAL_NUMBER");
-                Console.WriteLine("ITEM_NUMBER = " + itemNumber.FirstNode);
-                Console.WriteLine("SERIAL_NUMBER = " + serialNumber.FirstNode);
+                txtResponse.Text += "Item Details: " + itemNumber + Environment.NewLine;
+                txtResponse.Text += "Serial Number: " + serialNumber + Environment.NewLine;
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Exception when deserializing. Error: " + ex.Message.ToString());
             }
+        }
+
+        private void OrderNumbertxt_TextChanged(object sender, EventArgs e)
+        {
+            req.OrderNumber = OrderNumbertxt.Text;
+        }
+
+        private void SerialNumbertxt_TextChanged(object sender, EventArgs e)
+        {
+             req.SerialNumber = SerialNumbertxt.Text;
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            LogBox.Text = "";
         }
     }
 }
