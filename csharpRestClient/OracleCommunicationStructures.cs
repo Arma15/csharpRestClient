@@ -234,7 +234,7 @@ namespace csharpRestClient
 
         public override string ToString()
         {
-            string s = $"\"EsetNumber\": \"{EsetNumber}\","
+            string s = $"{{\"EsetNumber\": \"{EsetNumber}\","
                 + $"\"OrderNumber\": \"{OrderNumber}\","
                 + $"\"OrganizationCode\": \"{OrganizationCode}\","
                 + $"\"JobNumber\": \"{JobNumber}\","
@@ -247,7 +247,7 @@ namespace csharpRestClient
                 + $"\"OrderType\": \"{OrderType}\","
                 + $"\"TransactionType\": \"{TransactionType}\","
                 + $"\"ForkliftSerialNumber\": \"{ForkliftSerialNumber}\","
-                + $"\"ReportTypes\": \"{ReportTypes}\"";
+                + $"\"ReportTypes\": \"{ReportTypes}\"}}";
             return s;
         }
         /*
