@@ -18,40 +18,85 @@ namespace csharpRestClient
 
     public class Rreport
     {
+        [DataMember(Name = "FileExtensionName")]
         public string FileExtensionName { get; set; }
+
+        [DataMember(Name = "FileName")]
         public string FileName { get; set; }
+
+        [DataMember(Name = "FileContent")]
         public string FileContent { get; set; }
     }
 
     public class RerrorDetails
     {
+        [DataMember(Name = "ErrorCode")]
         public string ErrorCode { get; set; }
+
+        [DataMember(Name = "ErrorMessage")]
         public string ErrorMessage { get; set; }
     }
 
     public class RresponseDetails
     {
+        [DataMember(Name = "ResponseCode")]
         public int ResponseCode { get; set; }
+
+        [DataMember(Name = "ResponseMessage")]
         public string ResponseMessage { get; set; }
     }
+
     public class OACResponse
     {
-        public int EsetNumber { get; set; }
+        [DataMember(Name = "EsetNumber")]
+        public string EsetNumber { get; set; }
+
+        [DataMember(Name = "OrderNumber")]
         public string OrderNumber { get; set; }
+
+        [DataMember(Name = "OrganizationCode")]
         public string OrganizationCode { get; set; }
+
+        [DataMember(Name = "JobNumber")]
         public string JobNumber { get; set; }
+
+        [DataMember(Name = "SerialNumber")]
         public string SerialNumber { get; set; }
+
+        [DataMember(Name = "MACAddress")]
         public string MACAddress { get; set; }
+
+        [DataMember(Name = "SoftwareExtension")]
         public string SoftwareExtension { get; set; }
+
+        [DataMember(Name = "OperatorName")]
         public string OperatorName { get; set; }
+
+        [DataMember(Name = "ClientName")]
         public string ClientName { get; set; }
+
+        [DataMember(Name = "ClientType")]
         public string ClientType { get; set; }
+
+        [DataMember(Name = "OrderType")]
         public string OrderType { get; set; }
+
+        [DataMember(Name = "TransactionType")]
         public string TransactionType { get; set; }
+
+        [DataMember(Name = "ForkliftSerialNumber")]
         public string ForkliftSerialNumber { get; set; }
+
+        [DataMember(Name = "ReportTypes")]
         public string ReportTypes { get; set; }
+
+        [DataMember(Name = "Reports")]
         public Rreports Reports { get; set; }
+
+        [DataMember(Name = "ErrorDetails")]
         public RerrorDetails ErrorDetails { get; set; }
+
+        [DataMember(Name = "ResponseDetails")]
         public RresponseDetails ResponseDetails { get; set; }
 
         public OACResponse()
@@ -159,59 +204,59 @@ namespace csharpRestClient
     class OACRequest
     {
         /// <summary> Not Required </summary>
-        [DataMember]
+        [DataMember(Name = "EsetNumber")]
         public string EsetNumber { get; set; }
 
         /// <summary> Required </summary>
-        [DataMember]
+        [DataMember(Name = "OrderNumber")]
         public string OrderNumber { get; set; }
 
         /// <summary> Required -> Static Value: "BOP" </summary>
-        [DataMember]
+        [DataMember(Name = "OrganizationCode")]
         public string OrganizationCode { get; set; }
 
         /// <summary> Required </summary>
-        [DataMember]
+        [DataMember(Name = "JobNumber")]
         public string JobNumber { get; set; }
 
         /// <summary> Required </summary>
-        [DataMember]
+        [DataMember(Name = "SerialNumber")]
         public string SerialNumber { get; set; }
 
         /// <summary> Not Required: Null </summary>
-        [DataMember]
+        [DataMember(Name = "MACAddress")]
         public string MacAddress { get; set; }
 
         /// <summary> Not Required: Null </summary>
-        [DataMember]
+        [DataMember(Name = "SoftwareExtension")]
         public string SoftwareExtension { get; set; }
 
         /// <summary> Required -> Static Value: "3DInfotech" </summary>
-        [DataMember]
+        [DataMember(Name = "OperatorName")]
         public string OperatorName { get; set; }
 
         /// <summary> Required -> Static Value: "3DInfotech" </summary>
-        [DataMember]
+        [DataMember(Name = "ClientName")]
         public string ClientName { get; set; }
 
         /// <summary> Required -> Static Value: "3DInfotech" </summary>
-        [DataMember]
+        [DataMember(Name = "ClientType")]
         public string ClientType { get; set; }
 
         /// <summary> Not Required: Null </summary>
-        [DataMember]
+        [DataMember(Name = "OrderType")]
         public string OrderType { get; set; }
 
         /// <summary> Required -> Static Value: "Upgrade" </summary>
-        [DataMember]
+        [DataMember(Name = "TransactionType")]
         public string TransactionType { get; set; }
 
         /// <summary>  Not Required: Null </summary>
-        [DataMember]
+        [DataMember(Name = "ForkliftSerialNumber")]
         public string ForkliftSerialNumber { get; set; }
 
         /// <summary> Required -> Static Value: "xml" </summary>
-        [DataMember]
+        [DataMember(Name = "ReportTypes")]
         public string ReportTypes { get; set; }
 
         public OACRequest()
