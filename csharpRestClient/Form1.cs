@@ -297,6 +297,11 @@ namespace csharpRestClient
         {
             LogBox.Text = "";
         }
+
+        private void clear_Click(object sender, EventArgs e)
+        {
+            RequestURI.Text = "";
+        }
     }
 }
 

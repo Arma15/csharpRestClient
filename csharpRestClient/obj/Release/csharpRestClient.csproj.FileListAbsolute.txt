@@ -26,4 +26,3 @@ C:\Users\kflor\source\repos\csharpRestClient\csharpRestClient\obj\Release\csharp
 C:\Users\kflor\source\repos\csharpRestClient\csharpRestClient\obj\Release\csharpRestClient.exe
 C:\Users\kflor\source\repos\csharpRestClient\csharpRestClient\obj\Release\csharpRestClient.pdb
 C:\Users\kflor\source\repos\csharpRestClient\csharpRestClient\obj\Release\csharpRestClient.csprojAssemblyReference.cache
-C:\Users\3D Infotech.3DCA-LY520-12\source\repos\csharpRestClient\csharpRestClient\obj\Release\csharpRestClient.csprojAssemblyReference.cache
