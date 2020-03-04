@@ -42,7 +42,7 @@ namespace csharpRestClient
     public class RresponseDetails
     {
         [DataMember(Name = "ResponseCode")]
-        public int ResponseCode { get; set; }
+        public string ResponseCode { get; set; }
 
         [DataMember(Name = "ResponseMessage")]
         public string ResponseMessage { get; set; }

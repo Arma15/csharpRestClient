@@ -21,7 +21,6 @@ C:\Users\kflor\source\repos\csharpRestClient\csharpRestClient\bin\Release\RestSh
 C:\Users\kflor\source\repos\csharpRestClient\csharpRestClient\obj\Release\csharpRestClient.Form1.resources
 C:\Users\kflor\source\repos\csharpRestClient\csharpRestClient\obj\Release\csharpRestClient.Properties.Resources.resources
 C:\Users\kflor\source\repos\csharpRestClient\csharpRestClient\obj\Release\csharpRestClient.csproj.GenerateResource.cache
-C:\Users\kflor\source\repos\csharpRestClient\csharpRestClient\obj\Release\csharpRestClient.csproj.CoreCompileInputs.cache
 C:\Users\kflor\source\repos\csharpRestClient\csharpRestClient\obj\Release\csharpRestClient.csproj.CopyComplete
 C:\Users\kflor\source\repos\csharpRestClient\csharpRestClient\obj\Release\csharpRestClient.exe
 C:\Users\kflor\source\repos\csharpRestClient\csharpRestClient\obj\Release\csharpRestClient.pdb
