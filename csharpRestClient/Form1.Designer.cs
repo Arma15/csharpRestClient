@@ -55,6 +55,7 @@
             this.LogBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.clear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // RequestURI
@@ -312,11 +313,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
+            // clear
+            // 
+            this.clear.Location = new System.Drawing.Point(676, 10);
+            this.clear.Name = "clear";
+            this.clear.Size = new System.Drawing.Size(53, 23);
+            this.clear.TabIndex = 31;
+            this.clear.Text = "Clear";
+            this.clear.UseVisualStyleBackColor = true;
+            this.clear.Click += new System.EventHandler(this.clear_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(888, 582);
+            this.Controls.Add(this.clear);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.LogBox);
@@ -380,6 +392,7 @@
         private System.Windows.Forms.TextBox LogBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button clear;
     }
 }
 
