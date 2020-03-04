@@ -158,7 +158,7 @@ namespace csharpRestClient
                 LogBox.Text += "Added Header Name/Value: " + HeaderNametxt.Text + " " + HeaderValuetxt.Text + Environment.NewLine;
 
                 oacRequest.AddJsonBody(req);
-                LogBox.Text += "Added Json body: " + req.ToString() + Environment.NewLine;
+                LogBox.Text += "Added Json body: " + req.ToString() + Environment.NewLine + Environment.NewLine;
 
                 IRestResponse responseJson = oacClient.Execute(oacRequest);
                 LogBox.Text += "Request sent" + Environment.NewLine;
@@ -178,7 +178,7 @@ namespace csharpRestClient
                     LogBox.Text += "Headers: " + responseJson.Headers.ToString() + Environment.NewLine;
                 }
                 LogBox.Text += "Response content: " + Environment.NewLine;
-                LogBox.Text += responseJson.Content.ToString();
+                LogBox.Text += responseJson.Content.ToString() + Environment.NewLine + Environment.NewLine;
                 try
                 {
                     LogBox.Text += "Deserializing response " + Environment.NewLine;
