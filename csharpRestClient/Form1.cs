@@ -18,14 +18,14 @@ namespace csharpRestClient
         //public OACResponse rslt2 = new OACResponse();
         OACRequest req = new OACRequest();
         OACResponse rslt2 = new OACResponse();
-
+        public List<string> itemNumbers;
 
         string localHost = "https://localhost:44334/api/Response";
         public Form1()
         {
             InitializeComponent();
             //RequestURI.Text = localHost;
-
+            itemNumbers = new List<string>();
             OrderNumbertxt.Text = req.OrderNumber;
             SerialNumbertxt.Text = req.SerialNumber;
 
@@ -260,21 +260,28 @@ namespace csharpRestClient
 
                 // Decode the message into byte array
                 var decoded = Convert.FromBase64String(encoded);
-                LogBox.Text += "Decoded message: " + decoded + Environment.NewLine + Environment.NewLine;
 
                 // Convert byte array to string
                 string xmlMessage = Encoding.Default.GetString(decoded);
-                LogBox.Text += "xml message decoded." + Environment.NewLine;
+                LogBox.Text += "xml message decoded is: " + Environment.NewLine;
+                LogBox.Text += xmlMessage + Environment.NewLine + Environment.NewLine;
 
                 // Parse the message (in XML)
                 var str = XElement.Parse(xmlMessage);
                 LogBox.Text += "xml parsed." + Environment.NewLine;
 
                 // find specific tags
-                var itemNumber = str.Element("ITEM_DETAILS").Element("ITEM_NUMBER");
-                var serialNumber = str.Element("SERIAL_NUMBER");
-                txtResponse.Text += "Item Details: " + itemNumber + Environment.NewLine;
-                txtResponse.Text += "Serial Number: " + serialNumber + Environment.NewLine;
+                foreach (XElement XE in str.Elements("LABEL"))
+                {
+                    itemNumbers.Add(XE.Value);
+                }
+
+                txtResponse.Text += "Item numbers found: " + Environment.NewLine;
+                foreach (string item in itemNumbers)
+                {
+                    txtResponse.Text += item + Environment.NewLine;
+
+                }
                 
             }
             catch (Exception ex)
