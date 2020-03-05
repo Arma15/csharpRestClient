@@ -9,7 +9,9 @@ namespace csharpRestClient
 {
     public class Rreports
     {
+        [DataMember(Name = "Report")]
         public List<Rreport> Report { get; set; }
+
         public Rreports()
         {
             Report = new List<Rreport>();
@@ -40,7 +42,7 @@ namespace csharpRestClient
     public class RresponseDetails
     {
         [DataMember(Name = "ResponseCode")]
-        public int ResponseCode { get; set; }
+        public string ResponseCode { get; set; }
 
         [DataMember(Name = "ResponseMessage")]
         public string ResponseMessage { get; set; }
@@ -191,8 +193,10 @@ namespace csharpRestClient
     {
         [DataMember(Name = "access_token")]
         public string Access_Token { get; set; }
+
         [DataMember(Name = "token_type")]
         public string Token_Type { get; set; }
+
         [DataMember(Name = "expires_in")]
         public int Expires_In { get; set; }
     }

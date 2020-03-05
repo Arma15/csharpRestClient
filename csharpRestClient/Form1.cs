@@ -18,14 +18,14 @@ namespace csharpRestClient
         //public OACResponse rslt2 = new OACResponse();
         OACRequest req = new OACRequest();
         OACResponse rslt2 = new OACResponse();
-
+        public List<string> itemNumbers;
 
         string localHost = "https://localhost:44334/api/Response";
         public Form1()
         {
             InitializeComponent();
             //RequestURI.Text = localHost;
-
+            itemNumbers = new List<string>();
             OrderNumbertxt.Text = req.OrderNumber;
             SerialNumbertxt.Text = req.SerialNumber;
 
@@ -158,7 +158,7 @@ namespace csharpRestClient
                 LogBox.Text += "Added Header Name/Value: " + HeaderNametxt.Text + " " + HeaderValuetxt.Text + Environment.NewLine;
 
                 oacRequest.AddJsonBody(req);
-                LogBox.Text += "Added Json body: " + req.ToString() + Environment.NewLine;
+                LogBox.Text += "Added Json body: " + req.ToString() + Environment.NewLine + Environment.NewLine;
 
                 IRestResponse responseJson = oacClient.Execute(oacRequest);
                 LogBox.Text += "Request sent" + Environment.NewLine;
@@ -178,7 +178,7 @@ namespace csharpRestClient
                     LogBox.Text += "Headers: " + responseJson.Headers.ToString() + Environment.NewLine;
                 }
                 LogBox.Text += "Response content: " + Environment.NewLine;
-                LogBox.Text += responseJson.Content.ToString();
+                LogBox.Text += responseJson.Content.ToString() + Environment.NewLine + Environment.NewLine;
                 try
                 {
                     LogBox.Text += "Deserializing response " + Environment.NewLine;
@@ -218,7 +218,7 @@ namespace csharpRestClient
             }
         }
 
-    private void debugOutput(string strDebugText)
+        private void debugOutput(string strDebugText)
         {
             try
             {
@@ -227,7 +227,7 @@ namespace csharpRestClient
                 txtResponse.SelectionStart = txtResponse.TextLength;
                 txtResponse.ScrollToCaret();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 System.Diagnostics.Debug.Write(ex.Message, ToString() + Environment.NewLine);
             }
@@ -253,33 +253,55 @@ namespace csharpRestClient
         {
             try
             {
+                if (rslt2 == null || rslt2.Reports == null || rslt2.Reports.Report == null || rslt2.Reports.Report[0].FileContent == null)
+                {
+                    // Error OAC response or member is null
+                    LogBox.Text += "Error: OAC response or member is null.." + Environment.NewLine;
+                }
+
                 // File content contains base 64 encoded xml to retrieve info
                 string encoded = rslt2.Reports.Report[0].FileContent;
+
                 LogBox.Text += "File Content: " + Environment.NewLine;
                 LogBox.Text += encoded + Environment.NewLine + Environment.NewLine;
 
                 // Decode the message into byte array
                 var decoded = Convert.FromBase64String(encoded);
-                LogBox.Text += "Decoded message: " + decoded + Environment.NewLine + Environment.NewLine;
 
                 // Convert byte array to string
                 string xmlMessage = Encoding.Default.GetString(decoded);
-                LogBox.Text += "xml message decoded." + Environment.NewLine;
+                if (xmlMessage.Trim() == "")
+                {
+                    LogBox.Text += "**** xml message is empty ****" + Environment.NewLine;
+                }
+                LogBox.Text += "xml message decoded is: " + Environment.NewLine;
+                LogBox.Text += xmlMessage + Environment.NewLine + Environment.NewLine;
 
-                // Parse the message (in XML)
-                var str = XElement.Parse(xmlMessage);
-                LogBox.Text += "xml parsed." + Environment.NewLine;
+                // Parse the message (in XML) MAKE SURE xmlMessage is NOT NULL
+                try
+                {
+                    XElement str = XElement.Parse(xmlMessage);
+                    LogBox.Text += "xml parsed." + Environment.NewLine;
+                    // find specific tag
+                    foreach (XElement XE in str.Elements("LABEL"))
+                    {
+                        itemNumbers.Add(XE.Value);
+                    }
 
-                // find specific tags
-                var itemNumber = str.Element("ITEM_DETAILS").Element("ITEM_NUMBER");
-                var serialNumber = str.Element("SERIAL_NUMBER");
-                txtResponse.Text += "Item Details: " + itemNumber + Environment.NewLine;
-                txtResponse.Text += "Serial Number: " + serialNumber + Environment.NewLine;
-                
+                    txtResponse.Text += "Item numbers found: " + (itemNumbers.Count == 0 ? "None" : "") + Environment.NewLine;
+                    foreach (string item in itemNumbers)
+                    {
+                        txtResponse.Text += item + Environment.NewLine;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    LogBox.Text += Environment.NewLine + "Exception thrown when parsing. Message: " + ex.Message.ToString() + Environment.NewLine;
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Exception when deserializing. Error: " + ex.Message.ToString());
+                MessageBox.Show("Exception when deserializing. Message: " + ex.Message.ToString());
             }
         }
 
