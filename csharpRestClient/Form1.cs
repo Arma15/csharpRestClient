@@ -191,13 +191,11 @@ namespace csharpRestClient
                 }
 
                 ResponseCode.Text = responseJson.StatusCode.ToString();
-                txtResponse.Text += "Org Code: " + rslt2.OrganizationCode + Environment.NewLine;
                 txtResponse.Text += "Serial Number: " + rslt2.SerialNumber + Environment.NewLine;
                 txtResponse.Text += "Error Details.ErrorCode: " + rslt2.ErrorDetails.ErrorCode + Environment.NewLine;
                 txtResponse.Text += "Error Details.ErrorMessage: " + rslt2.ErrorDetails.ErrorMessage + Environment.NewLine;
                 txtResponse.Text += "ResponseDetails.ResponseCode: " + rslt2.ResponseDetails.ResponseCode + Environment.NewLine;
                 txtResponse.Text += "ResponseDetails.ResponseMessage: " + rslt2.ResponseDetails.ResponseMessage + Environment.NewLine;
-                txtResponse.Text += "Operator Name: " + rslt2.OperatorName + Environment.NewLine + Environment.NewLine;
 
                 try
                 {
