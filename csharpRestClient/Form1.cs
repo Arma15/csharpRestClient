@@ -286,7 +286,7 @@ namespace csharpRestClient
                         string number = XE.Descendants("ITEM_NUMBER").FirstOrDefault()?.Value;
                         string xmltag = XE.Descendants("XML_TAG").FirstOrDefault()?.Value;
                         itemNumbers.Add(number);
-                    }
+                    } 
 
                     txtResponse.Text += "Item numbers found: " + (itemNumbers.Count == 0 ? "None" : "") + Environment.NewLine;
                     foreach (string item in itemNumbers)
