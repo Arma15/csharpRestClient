@@ -281,7 +281,7 @@ namespace csharpRestClient
                     XElement str = XElement.Parse(xmlMessage);
                     LogBox.Text += "xml parsed." + Environment.NewLine;
                     // find specific tag
-                    foreach (XElement XE in str.Elements("LABEL"))
+                    foreach (XElement XE in str.Elements("ITEM_DETAILS"))
                     {
                         string number = XE.Descendants("ITEM_NUMBER").FirstOrDefault()?.Value;
                         string xmltag = XE.Descendants("XML_TAG").FirstOrDefault()?.Value;
