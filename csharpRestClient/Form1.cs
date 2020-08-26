@@ -280,7 +280,7 @@ namespace csharpRestClient
                 {
                     XElement str = XElement.Parse(xmlMessage);
                     LogBox.Text += "xml parsed." + Environment.NewLine;
-                    itemNumbers.Clear();
+                    //itemNumbers.Clear();
                     // find specific tag
                     foreach (XElement XE in str.Elements("ITEM_DETAILS"))
                     {
