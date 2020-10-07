@@ -276,6 +276,18 @@ namespace csharpRestClient
                 LogBox.Text += "xml message decoded is: " + Environment.NewLine;
                 LogBox.Text += xmlMessage + Environment.NewLine + Environment.NewLine;
 
+                while (true)
+                {
+                    int startIndex = xmlMessage.IndexOf("<ACTIVATION_CODE>");
+                    if (startIndex < 0)
+                    {
+                        break;
+                    }
+                    int endIndex = xmlMessage.IndexOf("</ACTIVATION_CODE>");
+                    int length = endIndex - (startIndex + 17);
+                    xmlMessage = xmlMessage.Remove(startIndex, length + 35);
+                }
+
                 // Parse the message (in XML) MAKE SURE xmlMessage is NOT NULL
                 try
                 {
@@ -285,9 +297,12 @@ namespace csharpRestClient
                     // find specific tag
                     foreach (XElement XE in str.Elements("ITEM_DETAILS"))
                     {
-                        string number = XE.Descendants("ITEM_NUMBER").FirstOrDefault()?.Value;
+                        string number = XE.Descendants("OPTION_CODE").FirstOrDefault()?.Value;
                         string xmltag = XE.Descendants("XML_TAG").FirstOrDefault()?.Value;
-                        itemNumbers.Add(number);
+                        if (xmltag != "SWOPT")
+                        {
+                            itemNumbers.Add(number);
+                        }
                     } 
 
                     txtResponse.Text += "Item numbers found: " + (itemNumbers.Count == 0 ? "None" : "") + Environment.NewLine;
