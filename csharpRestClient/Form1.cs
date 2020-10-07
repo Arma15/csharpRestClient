@@ -355,6 +355,11 @@ namespace csharpRestClient
         {
             RequestURI.Text = "";
         }
+
+        private void ClearResponse_Click(object sender, EventArgs e)
+        {
+            txtResponse.Text = "";
+        }
     }
 }
 

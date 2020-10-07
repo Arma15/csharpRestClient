@@ -56,6 +56,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.clear = new System.Windows.Forms.Button();
+            this.ClearResponse = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // RequestURI
@@ -351,11 +352,23 @@
             this.clear.UseVisualStyleBackColor = true;
             this.clear.Click += new System.EventHandler(this.clear_Click);
             // 
+            // ClearResponse
+            // 
+            this.ClearResponse.Location = new System.Drawing.Point(68, 248);
+            this.ClearResponse.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ClearResponse.Name = "ClearResponse";
+            this.ClearResponse.Size = new System.Drawing.Size(112, 35);
+            this.ClearResponse.TabIndex = 32;
+            this.ClearResponse.Text = "Clear Response";
+            this.ClearResponse.UseVisualStyleBackColor = true;
+            this.ClearResponse.Click += new System.EventHandler(this.ClearResponse_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1730, 1443);
+            this.Controls.Add(this.ClearResponse);
             this.Controls.Add(this.clear);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label5);
@@ -422,6 +435,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button clear;
+        private System.Windows.Forms.Button ClearResponse;
     }
 }
 
