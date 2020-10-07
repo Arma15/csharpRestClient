@@ -289,7 +289,7 @@ namespace csharpRestClient
                     int length = endIndex - (startIndex + 17);
                     xmlMessage = xmlMessage.Remove(startIndex, length + 35);
                 }
-
+                itemNumbers.Clear();
                 // Parse the message (in XML) MAKE SURE xmlMessage is NOT NULL
                 try
                 {
@@ -303,7 +303,10 @@ namespace csharpRestClient
                         string xmltag = XE.Descendants("XML_TAG").FirstOrDefault()?.Value;
                         if (xmltag != "SWOPT")
                         {
-                            itemNumbers.Add(number);
+                            if (!itemNumbers.Contains(number))
+                            {
+                                itemNumbers.Add(number);
+                            }
                         }
                         else
                         {
@@ -313,7 +316,10 @@ namespace csharpRestClient
                                 string[] pns = number.Split(',');
                                 foreach (string pn in pns)
                                 {
-                                    itemNumbers.Add(pn);
+                                    if (!itemNumbers.Contains(pn))
+                                    {
+                                        itemNumbers.Add(pn);
+                                    }
                                 }
                             }
                         }
