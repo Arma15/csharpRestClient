@@ -28,7 +28,9 @@ namespace csharpRestClient
             itemNumbers = new List<string>();
             OrderNumbertxt.Text = req.OrderNumber;
             SerialNumbertxt.Text = req.SerialNumber;
-
+            RequestURI.Text = @"https://fssfed.ge.com/fss/as/token.oauth2?grant_type=client_credentials&client_id=OAC_eDelivery_stage&client_secret=3flbPERm5KHZLUSIHd2E1LCpnw6zkG0370wbRYqpUKCntj@Yv8t2CLg5nw@Ffb1d&scope=api";
+            ClientID.Text = "502702092";
+            ClientSecret.Text = "D1RVxRLa5XyzcInXPKvpgyBMCLN1WA3GM6UCLN1WA3GM6U";
         }
         #region UI Event Methods
         private void cmdGO_Click(object sender, EventArgs e)
@@ -302,6 +304,18 @@ namespace csharpRestClient
                         if (xmltag != "SWOPT")
                         {
                             itemNumbers.Add(number);
+                        }
+                        else
+                        {
+                            string opt = XE.Descendants("OPTION_NAME").FirstOrDefault()?.Value;
+                            if (opt.Contains("Vivid"))
+                            {
+                                string[] pns = number.Split(',');
+                                foreach (string pn in pns)
+                                {
+                                    itemNumbers.Add(pn);
+                                }
+                            }
                         }
                     } 
 
