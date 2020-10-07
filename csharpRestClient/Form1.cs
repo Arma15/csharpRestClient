@@ -255,6 +255,7 @@ namespace csharpRestClient
                 {
                     // Error OAC response or member is null
                     LogBox.Text += "Error: OAC response or member is null.." + Environment.NewLine;
+                    return;
                 }
 
                 // File content contains base 64 encoded xml to retrieve info

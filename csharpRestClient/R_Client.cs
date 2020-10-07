@@ -26,7 +26,7 @@ namespace csharpRestClient
             httpMethod = httpVerb.GET;
         }
 
-        public string makeRequest()
+        public string MakeRequest() 
         {
             string strResponseValue = string.Empty;
             if (endPoint == string.Empty)
